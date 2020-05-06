@@ -13,6 +13,8 @@ ipaddr = ni.ifaddresses('eth0')[ni.AF_INET][0]['addr']
 
 ACCESS_KEY='' #aws account access key
 SECRET_KEY='' #aws account secret access key
+BUCKET_NAME = '' # s3 bucket name
+DOWNLOAD_FILE = '' # s3 file name to download
 
 def upload_file(file_name, bucket, object_name=None):
     """Upload a file to an S3 bucket
@@ -43,5 +45,5 @@ ip_string = "{}\n {}\n".format(ipaddr,current_time)
 with open('ip.txt', 'w') as file:
     file.write(ip_string)
     
-upload =  upload_file('ip.txt', '', '') # file to upload, s3 bucket name, s3 item name
+upload =  upload_file('ip.txt', BUCKET_NAME, DOWNLOAD_FILE) # file to upload, s3 bucket name, s3 item name
 
