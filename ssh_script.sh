@@ -1,5 +1,6 @@
 #!/bin/bash
 PASSWORD=" " #ssh password
+USER=" " #ssh username
 
 python3 ip_s3_down.py
 
@@ -24,9 +25,6 @@ read -p "Do you want to connect? " -n 1 -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-   sshpass -p $PASSWORD ssh -o StrictHostKeyChecking=no debian@"${array[0]}"
-
-#   ssh debian@"${array[0]}"   
-
+   sshpass -p $PASSWORD ssh -o StrictHostKeyChecking=no $USER@"${array[0]}"
 fi
 
